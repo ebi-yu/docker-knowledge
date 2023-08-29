@@ -11,27 +11,27 @@ Docker file for knowledge
 
 - [Landing page](https://support-project.org/knowledge_info/index)
 
+## build
 
-
-## Get from Docker Hub
-
-```
-docker pull koda/docker-knowledge
-mkdir /home/hoge/knowledge
-chmod a+w /home/hoge/knowledge
-docker run -d -p 80:8080 -v /home/hoge/knowledge:/root/.knowledge --name knowledge koda/docker-knowledge
+```sh
+docker-compose up -d
 ```
 
-
-
-## Build yourself
-
-Get DockerFile and run this command.
-
-```
-docker build -t knowledge .
-mkdir ~/home/hoge/knowledge
-chmod a+w /home/hoge/knowledge
-docker run -d -p 80:8080 -v /home/hoge/knowledge:/root/.knowledge --name knowledge knowledge
+rebuild
+```sh
+docker-compose up -d --build --force-recreate
 ```
 
+log
+```sh
+docker logs knowledge --tail=100 -f
+```
+
+access
+```sh
+docker exec -it knowledge bash
+```
+
+## access 
+
+http://localhost:8082/knowledge/open.knowledge/list
